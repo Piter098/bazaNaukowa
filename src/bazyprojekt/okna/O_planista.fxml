@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bazyprojekt.okna.O_planistaController">
+    <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+         <children>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlePowrot" text="Powrót" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Odśwież" />
+               </children>
+            </HBox>
+            <TabPane fx:id="karty" maxHeight="440.0" maxWidth="640.0" onDragDetected="#handleRefresh" prefHeight="440.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="karta1" text="Przydziały">
+                     <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <HBox spacing="32.0">
+                                 <children>
+                                    <VBox spacing="8.0">
+                                       <children>
+                                          <HBox spacing="8.0">
+                                             <children>
+                                                <Button fx:id="bNowyPrzydzial" mnemonicParsing="false" onAction="#dodajPrzydzial" text="Nowy przydział" />
+                                                <Button fx:id="bEdytujPrzydzial" disable="true" mnemonicParsing="false" onAction="#dodajPrzydzial" text="Edytuj" />
+                                             </children>
+                                          </HBox>
+                                          <TableView fx:id="tablicaPrzydzialow" prefHeight="340.0">
+                                            <columns>
+                                                <TableColumn fx:id="tabNumer" prefWidth="30.0" text="ID" />
+                                                <TableColumn fx:id="tabNazwa" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="153.0" text="Nazwa" />
+                                                <TableColumn fx:id="tabSekcja" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="134.0" text="Sekcja" />
+                                                <TableColumn fx:id="tabNumerSekcji" prefWidth="89.0" text="Numer Sekcji" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <VBox fx:id="vbOpis" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="8.0" visible="false">
+                                       <children>
+                                          <Label fx:id="lNazwa" text="NAZWA">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lIdPrzydzialu" text="#0000000" />
+                                          <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
+                                          <Label text="Sekcja">
+                                             <font>
+                                                <Font name="System Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lSekcja" text="NAZWA_SEKCJI" />
+                                          <Label fx:id="lIdSekcji" text="ID_SEKCJI" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab fx:id="karta2" text="Pracownicy">
+                     <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <children>
+                              <VBox prefHeight="400.0" prefWidth="600.0" spacing="8.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#ustalPrzydzial" text="Przydziel" />
+                                          <Button mnemonicParsing="false" onAction="#wyczyscPrzydzial" text="Wyczyść przydział" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPracownikow">
+                                      <columns>
+                                        <TableColumn fx:id="tabID" maxWidth="1.7976931348623157E308" minWidth="8.0" prefWidth="32.0" text="ID" />
+                                        <TableColumn fx:id="tabImie" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="105.0" text="Imię" />
+                                          <TableColumn fx:id="tabNazwisko" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="140.0" text="Nazwisko" />
+                                          <TableColumn fx:id="tabPrzydzial" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="113.0" text="Przydział" />
+                                          <TableColumn fx:id="tabSekcja2" prefWidth="87.0" text="Sekcja" />
+                                          <TableColumn fx:id="tabNumerSekcji2" prefWidth="89.0" text="Numer sekcji" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

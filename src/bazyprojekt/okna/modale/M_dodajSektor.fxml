@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="154.0" prefWidth="238.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="bazyprojekt.okna.modale.M_dodajSektorController">
+   <children>
+      <VBox spacing="8.0">
+         <children>
+            <Label fx:id="lTytul" text="Dodaj sektor">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <Label text="Symbol" />
+            <TextField fx:id="tSymbol" onKeyTyped="#odblokujOK">
+               <VBox.margin>
+                  <Insets top="-8.0" />
+               </VBox.margin>
+            </TextField>
+            <HBox spacing="8.0">
+               <children>
+                  <Button fx:id="bOK" disable="true" mnemonicParsing="false" onAction="#handleOK" prefWidth="64.0" text="OK" />
+                  <Button fx:id="bOK1" mnemonicParsing="false" onAction="#handleOK" prefWidth="64.0" text="Anuluj" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

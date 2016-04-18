@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bazyprojekt.okna.O_nadzorcaController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="16.0">
+         <children>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlePowrot" text="Powrót" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleRefresh" text="Odśwież" />
+               </children>
+            </HBox>
+            <TabPane fx:id="karty" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab fx:id="karta1" text="Badania">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                           <children>
+                              <TableView fx:id="tablicaBadan" layoutX="10.0" layoutY="10.0" prefHeight="360.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn fx:id="tabBID" prefWidth="44.0" text="ID" />
+                                    <TableColumn fx:id="tabBTytul" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="155.0" text="Tytuł" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="bBWyslij" disable="true" layoutX="225.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleWyslij" text="Wyślij do sztabu" />
+                              <TextArea fx:id="tBTresc" editable="false" layoutX="228.0" layoutY="111.0" prefHeight="251.0" prefWidth="372.0" wrapText="true" />
+                              <Label fx:id="lBTytul" layoutX="228.0" layoutY="55.0" text="TYTUŁ">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lBNumer" layoutX="228.0" layoutY="90.0" text="#0000" />
+                              <Button fx:id="bBUsun" disable="true" layoutX="337.0" layoutY="14.0" mnemonicParsing="false" onAction="#usunBadanie" text="Usuń badanie" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab fx:id="karta2" text="Sektory">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowySektor" text="Dodaj" />
+                                          <Button fx:id="bSEdytuj" mnemonicParsing="false" onAction="#handleNowySektor" text="Edytuj" />
+                                          <Button fx:id="bSUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunSektor" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaSektorow" prefHeight="360.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabSSymbol" prefWidth="199.0" text="Symbol" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label fx:id="lSSymbol" text="SYMBOL">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="16.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lSLaby" text="0">
+                                       <graphic>
+                                          <Label text="Laboratoria" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lSPosterunki" text="0">
+                                       <graphic>
+                                          <Label text="Posterunki" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lSPokoje" text="0">
+                                       <graphic>
+                                          <Label text="Pokoje mieszkalne" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                <Tab fx:id="karta3" text="Pokoje mieszkalne">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowyPokoj" text="Dodaj" />
+                                          <Button fx:id="bPokEdytuj" mnemonicParsing="false" onAction="#handleNowyPokoj" text="Edytuj" />
+                                          <Button fx:id="bPokUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunPokoj" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPokoi" prefHeight="360.0" prefWidth="400.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabPokID" prefWidth="38.0" text="ID" />
+                                          <TableColumn fx:id="tabPokSektor" prefWidth="91.0" text="Sektor" />
+                                          <TableColumn fx:id="tabPokMiejsca" prefWidth="129.0" text="Miejsca" />
+                                          <TableColumn fx:id="tabPokWielkosc" prefWidth="135.0" text="Wielkość" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label fx:id="lPokID" text="ID">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lPokSektor" text="AAA">
+                                       <graphic>
+                                          <Label text="Sektor" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPokMieszkancy" text="0">
+                                       <graphic>
+                                          <Label text="Mieszkańcy" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPokWielkosc" text="0">
+                                       <graphic>
+                                          <Label text="Wielkość" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="karta4" text="Pojazdy">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowyPojazd" text="Dodaj" />
+                                          <Button fx:id="bPojEdytuj" mnemonicParsing="false" onAction="#handleNowyPojazd" text="Edytuj" />
+                                          <Button fx:id="bPojUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunPojazd" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPojazdow" prefHeight="360.0" prefWidth="400.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabPojNumer" prefWidth="32.0" text="Nr" />
+                                          <TableColumn fx:id="tabPojTyp" prefWidth="131.0" text="Typ" />
+                                          <TableColumn fx:id="tabPojZaloga" prefWidth="81.0" text="Zaloga" />
+                                          <TableColumn fx:id="tabPojMagazyn" prefWidth="78.0" text="Magazyn" />
+                                          <TableColumn fx:id="tabPojPredkosc" prefWidth="77.0" text="Predkosc" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <Label fx:id="lPojNumer" text="NUMER_REJ">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lPojSekcja" text="SEKCJA">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lPojIdSekcji" text="ID_SEKCJI">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator prefHeight="9.0" />
+                                    <Label fx:id="lPojTyp" text="TYP">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lPojZaloga" text="10">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Załoga">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPojMagazyn" alignment="CENTER_RIGHT" text="999">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Magazyn">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPojPredkosc" alignment="CENTER_RIGHT" text="999">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Prędkość">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="karta5" text="Laboratoria">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowyLab" text="Dodaj" />
+                                          <Button fx:id="bLabEdytuj" mnemonicParsing="false" onAction="#handleNowyLab" text="Edytuj" />
+                                          <Button fx:id="bLabUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunLab" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaLaboratoriow" prefHeight="360.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabLabNumer" prefWidth="49.0" text="ID" />
+                                          <TableColumn fx:id="tabLabSektor" prefWidth="105.0" text="Sektor" />
+                                          <TableColumn fx:id="tabLabDziedzina" prefWidth="160.0" text="Dziedzina badań" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label fx:id="lLabNumer" text="ID">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lLabDziedzina" text="DZIEDZINA">
+                                       <font>
+                                          <Font name="System Bold Italic" size="12.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lLabSektor" text="AAA">
+                                       <graphic>
+                                          <Label text="Sektor" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lLabPracownicy" text="0">
+                                       <graphic>
+                                          <Label text="Pracownicy" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lLabPrzydzialy" text="0">
+                                       <graphic>
+                                          <Label text="Przydziały" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="karta6" text="Posterunki">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowyPost" text="Dodaj" />
+                                          <Button fx:id="bPosUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunPost" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPosterunkow" prefHeight="360.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabPosNumer" prefWidth="63.0" text="ID" />
+                                          <TableColumn fx:id="tabPosSektor" prefWidth="128.0" text="Sektor" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Label fx:id="lPosNumer" text="ID">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lPosSektor" text="AAA">
+                                       <graphic>
+                                          <Label text="Sektor" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPosPracownicy" text="0">
+                                       <graphic>
+                                          <Label text="Pracownicy" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPosPrzydzialy" text="0">
+                                       <graphic>
+                                          <Label text="Przydziały" />
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lPosPojazdy" text="0">
+                                       <graphic>
+                                          <Label text="Pojazdy" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="karta7" text="Pracownicy">
+                     <content>
+                        <HBox spacing="32.0">
+                           <children>
+                              <VBox>
+                                 <children>
+                                    <HBox alignment="TOP_RIGHT" spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#handleNowyPrac" text="Dodaj" />
+                                          <Button fx:id="bPraEdytuj" mnemonicParsing="false" onAction="#handleNowyPrac" text="Edytuj" />
+                                          <Button fx:id="bPraUsun" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#usunPrac" text="Usuń">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPracownikow" prefHeight="360.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabPraNumer" prefWidth="32.0" text="Nr" />
+                                          <TableColumn fx:id="tabPraImie" prefWidth="103.0" text="Imię" />
+                                          <TableColumn fx:id="tabPraNazwisko" prefWidth="98.0" text="Nazwisko" />
+                                          <TableColumn fx:id="tabPraMieszkanie" prefWidth="85.0" text="Mieszkanie" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <Label fx:id="lPraImie" text="IMIE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="lPraNazwisko" text="NAZWISKO">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lPraNumer" text="#0000" />
+                                    <Label fx:id="lPraPrzydzial" text="PRZYDZIAŁ">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lPraSekcjaNum" text="NUMER">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label fx:id="lPraSekcja" text="SEKCJA">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Separator />
+                                    <GridPane hgap="8.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="82.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="154.0" minWidth="10.0" prefWidth="133.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Data ur.">
+                                             <padding>
+                                                <Insets right="16.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="lPraDataUr" text="1111-11-11" GridPane.columnIndex="1" />
+                                          <Label text="Mieszkanie" GridPane.rowIndex="1">
+                                             <padding>
+                                                <Insets right="16.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="lPraMieszkanie" text="AAA-00" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

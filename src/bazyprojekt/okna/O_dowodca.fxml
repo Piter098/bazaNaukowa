@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bazyprojekt.okna.O_dowodcaController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+         <children>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlePowrot" text="Powrót" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Odśwież" />
+               </children>
+            </HBox>
+            <TabPane fx:id="karty" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="karta1" text="Sekcje badawcze">
+                     <content>
+                        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="32.0">
+                           <children>
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <HBox spacing="8.0">
+                                       <children>
+                                          <Button fx:id="bNowaSekcja" mnemonicParsing="false" onAction="#dodajSekcje" text="Nowa sekcja" />
+                                          <Button fx:id="bEdytujSekcje" mnemonicParsing="false" onAction="#dodajSekcje" text="Edytuj" />
+                                          <Button mnemonicParsing="false" onAction="#usunSekcje" text="Usuń" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaSekcji" prefHeight="360.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabID" prefWidth="30.0" text="ID" />
+                                          <TableColumn fx:id="tabZaloga" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="70.0" text="Załoga" />
+                                          <TableColumn fx:id="tabMiejsca" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="77.0" text="Miejsca" />
+                                          <TableColumn fx:id="tabProwiant" prefWidth="79.0" text="Prowiant" />
+                                          <TableColumn fx:id="tabZasoby" prefWidth="88.0" text="Zasoby" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                              <Separator maxHeight="1.7976931348623157E308" orientation="VERTICAL" />
+                              <VBox fx:id="vbOpis" spacing="8.0">
+                                 <children>
+                                    <Label fx:id="lNumer" text="NUMER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator prefWidth="200.0" />
+                                    <Label fx:id="lZaloga" text="0/10">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Załoga">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lProwiant" alignment="CENTER_RIGHT" text="999">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Prowiant">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                    <Label fx:id="lZasoby" alignment="CENTER_RIGHT" text="999">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <Label text="Zasoby">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                <Tab fx:id="karta2" text="Pojazdy">
+                     <content>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="32.0">
+                           <children>
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <HBox spacing="8.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#przydzielPojazd" text="Przydziel pojazd" />
+                                          <Button mnemonicParsing="false" onAction="#wyczyscPrzydzial" text="Wyczyść przydział" />
+                                       </children>
+                                    </HBox>
+                                    <TableView fx:id="tablicaPojazdow" prefHeight="360.0">
+                                       <columns>
+                                          <TableColumn fx:id="tabNumer" prefWidth="58.0" text="Numer" />
+                                          <TableColumn fx:id="tabPojZalogi" maxWidth="1.7976931348623157E308" minWidth="32.0" prefWidth="63.0" text="Miejsca" />
+                                          <TableColumn fx:id="tabPojMagazynu" prefWidth="68.0" text="Magazyn" />
+                                          <TableColumn fx:id="tabPredkosc" prefWidth="71.0" text="Predkosc" />
+                                          <TableColumn fx:id="tabTyp" prefWidth="87.0" text="Typ" />
+                                          <TableColumn fx:id="tabSekcja" prefWidth="99.0" text="Sekcja" />
+                                          <TableColumn fx:id="tabNumerSekcji" prefWidth="73.0" text="ID Sekcji" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

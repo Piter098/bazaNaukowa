@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bazyprojekt.okna.O_pracownikController">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+         <children>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handlePowrot" text="Powrót" />
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleRefresh" text="Odśwież" />
+               </children>
+            </HBox>
+            <Label id="imie" fx:id="lTytul" text="Karta pracownika">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="8.0" top="8.0" />
+               </VBox.margin>
+            </Label>
+            <VBox fx:id="vbOpis" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Label id="imie" fx:id="lImie" text="Imie">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label id="imie" fx:id="lNazwisko" text="Nazwisko">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label id="imie" fx:id="lNumer" prefHeight="20.0" prefWidth="107.0" text="#0000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label id="imie" text="Przydział">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lPrzydzial" text="PRZYDZIAŁ">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lSekcjaNum" text="SEKCJA_NUM">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <Label fx:id="lSekcja" text="SEKCJA">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets right="16.0" />
+                           </padding>
+                        </Label>
+                     </graphic>
+                  </Label>
+                  <Label id="imie" text="Ur. dnia">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-4.0" top="16.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lDataUr" text="1111-11-11">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label id="imie" text="Mieszkanie">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="-4.0" top="16.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lMieszkanie" text="AAA-0000">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

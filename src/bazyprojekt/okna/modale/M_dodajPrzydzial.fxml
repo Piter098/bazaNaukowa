@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bazyprojekt.okna.modale.M_dodajPrzydzialController">
+   <children>
+      <VBox spacing="4.0">
+         <children>
+            <Label fx:id="lTytul" alignment="TOP_LEFT" text="Dodaj przydział">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lNumer" text="#000000">
+               <graphic>
+                  <Label text="Numer">
+                     <padding>
+                        <Insets right="8.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label text="Nazwa">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tNazwa" onKeyTyped="#odblokujOK" />
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="8.0" top="8.0" />
+               </VBox.margin>
+            </Separator>
+            <HBox spacing="32.0">
+               <children>
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label text="Sekcja">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rBadawcze" mnemonicParsing="false" onAction="#doComboBoxy" text="Sekcje badawcze">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="rSekcje" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rLaboratoria" mnemonicParsing="false" onAction="#doComboBoxy" text="Laboratoria" toggleGroup="$rSekcje" />
+                        <RadioButton fx:id="rPosterunki" mnemonicParsing="false" onAction="#doComboBoxy" text="Posterunki ochrony" toggleGroup="$rSekcje" />
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL">
+                     <HBox.margin>
+                        <Insets left="4.0" right="4.0" />
+                     </HBox.margin>
+                  </Separator>
+                  <VBox>
+                     <children>
+                        <Label text="Sektor" />
+                        <ComboBox fx:id="cbSektory" disable="true" onAction="#wczytajIdentyfikatory" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                        <Label text="Identyfikator sekcji" />
+                        <ComboBox fx:id="cbNumery" disable="true" onAction="#wybierzNumer" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator>
+               <VBox.margin>
+                  <Insets bottom="8.0" top="8.0" />
+               </VBox.margin>
+            </Separator>
+            <HBox alignment="CENTER_RIGHT" spacing="16.0">
+               <children>
+                  <Button fx:id="bOK" disable="true" minWidth="64.0" mnemonicParsing="false" onAction="#handleOK" text="OK" />
+                  <Button cancelButton="true" minWidth="64.0" mnemonicParsing="false" onAction="#handleOK" text="Anuluj" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
